@@ -1,12 +1,11 @@
-
-
-
 public class Piece {//base object that all placeable things inherit from
 	private int posX;
 	private int posY;
 	private String name;
-      //private boolean alive; //should we have a variable to keep track of whether the piece is "alive"?
+      //private boolean available; //should we have a variable to keep track of whether the piece is "alive"?
       			       //also, should these variables be "protected" rather than "private"? or would it work as intended nonetheless?
+			       //to handle the pieces "dying" we could make a function (called "attack" or something) that when it executes, it sets the "alive" variable of the defending piece to false.
+			   
 
 	
 	public String toString(){
@@ -44,7 +43,8 @@ public class Piece {//base object that all placeable things inherit from
 		setY(y);
 	}
 	
-	public boolean isavailable(){
+	public boolean isAvailable(){ //could use this when drawing the board to look at which pieces need to be drawn?
+		return available;
 	}
 }
 
@@ -53,7 +53,7 @@ public class Piece {//base object that all placeable things inherit from
 
 
 
-
+//should we pull these out of this document and put them each into their own?
 public class King extends Piece {
 
 
