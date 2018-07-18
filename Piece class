@@ -5,6 +5,8 @@ public class Piece {//base object that all placeable things inherit from
 	private int posX;
 	private int posY;
 	private String name;
+      //private boolean alive; //should we have a variable to keep track of whether the piece is "alive"?
+      			       //also, should these variables be "protected" rather than "private"? or would it work as intended nonetheless?
 
 	
 	public String toString(){
