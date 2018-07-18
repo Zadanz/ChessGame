@@ -1,0 +1,84 @@
+
+
+
+public class Piece {//base object that all placeable things inherit from
+	private int posX;
+	private int posY;
+	private String name;
+
+	
+	public String toString(){
+		return name + " at " + posX +","+posY;
+	}
+	
+	Piece (int x, int y,String n){
+	posX = x;
+	posY = y;
+	name = n;
+	}
+
+	public int getX(){
+		return posX;
+	}
+	
+	public int getY(){
+		return posY;
+	}
+	
+	public String getName(){
+		return name;
+	}
+
+	public void setX(int x){
+		posX = x;
+	}
+	
+	public void setY(int y){
+		posY = y;
+	}
+	
+	public void moveUnit(int x, int y){
+		setX(x);
+		setY(y);
+	}
+	
+	public boolean isavailable(){
+	}
+}
+
+
+
+
+
+
+
+public class King extends Piece {
+
+
+	King(int x, int y){
+		super(x, y, "King");
+		
+	}
+
+		
+}
+
+public class Queen extends Piece {
+
+	Queen(int x, int y){
+		super(x, y, "Queen");
+	}
+	
+}
+
+public class Rook extends Piece {
+}
+
+public class Bishop extends Piece {
+}
+
+public class Knight extends Piece {
+}
+
+public class Pawn extends Piece {
+}
