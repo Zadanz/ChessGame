@@ -14,6 +14,9 @@ public class Knight extends Piece{
 	}
 	
 	public boolean canMove(int x, int y){
+		if (board[x,y].name.CharAt(0) == this.name.CharAt(0))
+			return false;
+		
 		if ((x == this.posX+1 && y == this.posY+2) || (x == this.posX+2 && y == this.posY+1) || (x == this.posX+2 && y == this.posY-1) || (x == this.posX+1 && y == this.posY-2 || (x == this.posX-1 && y == this.posY-2) || (x == this.posX-2 && y == this.posY-1) || (x == this.posX-2 && y == this.posY-1) || (x == this.posX-1 && y == this.posY-2))
 			return true;
 		
