@@ -12,4 +12,12 @@ public class Knight extends Piece{
 	public String drawPiece() {
 		return name;
 	}
+	
+	public boolean canMove(int x, int y){
+		if ((x == this.posX+1 && y == this.posY+2) || (x == this.posX+2 && y == this.posY+1) || (x == this.posX+2 && y == this.posY-1) || (x == this.posX+1 && y == this.posY-2 || (x == this.posX-1 && y == this.posY-2) || (x == this.posX-2 && y == this.posY-1) || (x == this.posX-2 && y == this.posY-1) || (x == this.posX-1 && y == this.posY-2))
+			return true;
+		
+		else 
+			return false;
+	}
 }
