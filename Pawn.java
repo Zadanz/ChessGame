@@ -14,11 +14,12 @@ public class Pawn extends Piece{
 	}
 	
 	public boolean canMove(int x, int y) {	//assuming that the board will handle invalid inputs (outside of the board)
-		if (turn <= 2) //handles moving 2 spaces for the first turn (turn 1 only whites should be able to move and turn 2 only blacks)
+		if (board[x,y].name.CharAt(0) == this.name.CharAt(0))
+			return false;
+		
+		else if (turn <= 2){ //handles moving 2 spaces for the first turn (turn 1 only whites should be able to move and turn 2 only blacks)
 			//turn should be changed to whatever variable will be handling this
-		{
-			
-		if(x == this.posX && y == this.posY+2{
+			if(x == this.posX && y == this.posY+2{
 				return true;	
 		}
 		
