@@ -25,10 +25,7 @@ public class Rook extends Piece{
 		}
 		if ((finX == initX) || (finY == initY))
 		{
-			if (a.emptySpaceCheck())
-			{
-				return true;
-			}
+			return true;
 		}
 		return false;
 		
