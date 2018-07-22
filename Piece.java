@@ -4,6 +4,14 @@ public class Piece {//base object that all placeable things inherit from
 	protected String name;
 	protected boolean ready;
 
+	public Piece(){
+	
+	}
+	
+	public Piece(int x, int y){
+		posX = x;
+		posY = y;
+	}
 	
 	public String toString()
 	{
