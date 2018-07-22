@@ -2,7 +2,7 @@ public class Piece {//base object that all placeable things inherit from
 	protected int posX;
 	protected int posY;
 	protected String name;
-	protected boolean ready;
+	protected boolean ready; //not sure what "ready" means. I think that "available" would be a more informative name, unless its used for something that I'm misunderstanding.
 
 	public Piece(){
 	
