@@ -1,21 +1,5 @@
 import java.util.Arrays;	// Eclipse says that this is redundant as it's not being used
 
-
-
-//Some ideas to implement (will work on these in the morning):
-//When drawing the board, consider the availability of the piece; only draw if it is available.
-//When a piece is captured, set it to not be available so that it won't be redrawn.
-//
-//When the pieces are initialized, their coords need to be set.
-//
-//Implement capturing pieces.
-//-How do we want this to work? Will there be several confirmations for the user about their move, or will the first valid move that the user chooses be executed?
-//
-//Pawn needs to be replaced with a Queen when it reaches the other side of the board.
-//
-//Implement a check for check in the King class to restrict playing into a check (perhaps same code as for win condition) - this could possibly be put off until after the demo, since, although this is a rule, the game is playable without it.
-
-
 public class Array {// class to initialize state of game board and update it upon movement of pieces
 	
 	Array boardArray;
@@ -73,12 +57,12 @@ public class Array {// class to initialize state of game board and update it upo
 		int oldRow = 0;
 		int oldColumn=0;	
 		
-		if(emptySpaceCheck(array,r,c) == false) {
+/*		if(emptySpaceCheck(array,r,c) == false) {
 			System.out.println("another piece at destination space");
 			System.out.println("");
 			return array;
 		}
-
+*/
 		for (int i = 0; i<=7;i++) {
 			for (int j = 0; j<=7;j++) {
 				if (array[i][j].equals(piece)) {
@@ -90,19 +74,124 @@ public class Array {// class to initialize state of game board and update it upo
 				}
 			}
 		
-		array[oldRow][oldColumn] = "emptySpace";
-		array[newRow][newColumn]= piece;
-		
-		return array;
-		
-				
-		
+		if(canMove (array, piece, oldRow, oldColumn, newRow, newColumn)) {
+			array[oldRow][oldColumn] = "emptySpace";
+			array[newRow][newColumn] = piece;
+			
+			return array;
+		}
+		else {
+			System.out.println("Invalid Move.");
+			return array;
+		}	
+	}
 	
-		
+		//Piece logic for the string array version
+	
+	public static boolean canMove (String[][] array, String piece, int iX, int iY, int fX, int fY) {
+		if (piece.regionMatches(4, "Pawn", 0, 4)) {
+			if (array[fX][fY].charAt(0) == piece.charAt(0)) 
+				return false;
+			
+			else if (turn <= 2){ //handles moving 2 spaces for the first turn (turn 1 only whites should be able to move and turn 2 only blacks)
+				//turn should be changed to whatever variable will be handling this
+				if(fX == iX && fY == iY+2){
+					return true;	
+			}
+			
+			else if(fX == iX && fY == iY+1){ 	//handles moving forward
+				if (array[fX][fY] != "emptySpace")
+					return false;
+				else
+					return true;
+			}
+			
+			else if (fX == iX-1 || fX == iX+1 && fY == iY+1){
+				if (array[fX][fY] != "emptySpace"){
+					return true;
+				}
+				else
+					return false;
+			}
+			
+			else
+				return false;
+		}
+			if (piece.regionMatches(4, "Knight", 0, 6)) {
+				if (array[fX][fY].charAt(0) == piece.charAt(0))
+					return false;
+				
+				if ((fX == iX+1 && fY == iY+2) || (fX == iX+2 && fY == iY+1) || (fX == iX+2 && fY == iY-1) || (fX == iX+1 && fY == iY-2) || (fX == iX-1 && fY == iY-2) || (fX == iX-2 && fY == iY-1) || (fX == iX-2 && fY == iY-1) || (fY == iX-1 && fY == iY-2))
+					return true;
+				
+				else 
+					return false;
+			}
+			
+			if (piece.regionMatches(4, "King", 0, 4)) {
+				if (array[fX][fY].charAt(0) == piece.charAt(0))
+					return false;
+				
+				else if ((fX == iX+1 && fY == iY)||(fX == iX+1 && fY == iY+1)||(fX == iX && fY == iY+1)||(fX == iX-1 && fY == iY)||(fX == iX-1 && fY == iY-1)||(fX == iX && fY == iY-1)||(fX == iX+1 && fY == iY-1)||(fX == iX-1 && fY == iY+1))
+					//if (inCheck(array, x, y)) //used to check whether the move will result in putting the king into check, thereby making it illegal. (This function doesn't exist yet.)
+						return false;
+					else
+						return true;	
+			}
+			
+			else
+				return false;
+			}
+			
+			if (piece.regionMatches(4, "Bishop", 0, 6)) {
+				if (array[fX][fY].charAt(0) == piece.charAt(0))
+					return false;
+				
+				if (Math.abs(fX - iX) == Math.abs(fY - iY))
+				{
+					return true;
+				}
+				
+				else
+				{
+					return false;
+		}
+			}
+			
+			if (piece.regionMatches(4, "Rook", 0, 4)) {
+				if (array[fX][fY].charAt(0) == piece.charAt(0))
+					return false;
+				
+				if ((fX == iX) || (fY == iY))
+				{
+					return true;
+				}
+				
+				else
+				{
+					return false;
+		}
+			}
+			
+			if (piece.regionMatches(4, "Queen", 0, 5)) {
+				if (array[fX][fY].charAt(0) == piece.charAt(0))
+					return false;
+				
+				if (Math.abs(fX - iX) == Math.abs(fY - iY) || ((fX == iX) || (fY == iY)))
+				{
+					return true;
+				}
+				
+				else
+				{
+					return false;
+				
+				}
+			}
 	}
 	
 	
-	private static boolean emptySpaceCheck(String[][] array, int r, int c) {
+/*	private static boolean emptySpaceCheck(String[][] array, int r, int c) { //I don't think this is needed currently
 		if(array[r][c] == "emptySpace") {
 			return true;
 		}
@@ -110,7 +199,7 @@ public class Array {// class to initialize state of game board and update it upo
 			return false;
 		}
 	}
-
+*/
 
 	public static void drawBoard(String[][] boardArray) {
 		
