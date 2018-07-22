@@ -1,5 +1,6 @@
 
 public class Rook extends Piece{
+	private String name = "R";
 	
 	public Rook(boolean white) {
 		if (white == true)
@@ -28,33 +29,25 @@ public class Rook extends Piece{
 			return true;
 		}
 		return false;
-		
-	public void moveUnit(int x, int y)//will change the move stuff to another class
+	}
+	
+	public boolean canMove(String[][] array, int x, int y)
 	{
-		if (rk.isAvailable(int initX, int initY, int finX, int finY))
+		if (array[x][y].charAt(0) == this.name.charAt(0))
 		{
-			setX(x);
-			setY(y);
+			return false;
 		}
+		
+		if ((x == this.posX) || (y == this.posY))
+		{
+			return true;
+		}
+		
+		else
+		{
+			return false;
+		}
+		
 	}
-	
-	
-	public static void main(String[] args)
-	{
-		Rook rk = new Rook();
-	}
-}
-
-
-
-
-
-
-
-
-
-
-
-
 
 }
