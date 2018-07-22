@@ -1,5 +1,19 @@
 import java.util.Arrays;	// Eclipse says that this is redundant as it's not being used
 
+
+
+//Some ideas to implement (will work on these in the morning):
+//When drawing the board, consider the availability of the piece; only draw if it is available.
+//When a piece is captured, set it to not be available so that it won't be redrawn.
+//
+//Implement capturing pieces.
+//-How do we want this to work? Will there be several confirmations for the user about their move, or will the first valid move that the user chooses be executed?
+//
+//Pawn needs to be replaced with a Queen when it reaches the other side of the board.
+//
+//Implement a check for check in the King class to restrict playing into a check (perhaps same code as for win condition) - this could possibly be put off until after the demo, since, although this is a rule, the game is playable without it.
+
+
 public class Array {// class to initialize state of game board and update it upon movement of pieces
 	
 	Array boardArray;
