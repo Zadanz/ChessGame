@@ -6,6 +6,8 @@ import java.util.Arrays;	// Eclipse says that this is redundant as it's not bein
 //When drawing the board, consider the availability of the piece; only draw if it is available.
 //When a piece is captured, set it to not be available so that it won't be redrawn.
 //
+//When the pieces are initialized, their coords need to be set.
+//
 //Implement capturing pieces.
 //-How do we want this to work? Will there be several confirmations for the user about their move, or will the first valid move that the user chooses be executed?
 //
