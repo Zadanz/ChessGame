@@ -19,32 +19,32 @@ public class Bishop extends Piece{
 	}
 
 	
-	public boolean isAvailable(int initX, int initY, int finX, int finY)
+	public boolean canMove(String[][] array, int x, int y)
 	{
-		if (!super.isAvailable(int initX, int initY, int finX, int finY))
+		if (array[x][y].charAt(0) == this.name.charAt(0))
 		{
 			return false;
 		}
 		
-		if (Math.abs(initX - finX) == Math.abs(initY - finY))
+		if (Math.abs(x - this.posX) == Math.abs(y - this.posY))
 		{
 			return true;
 		}
-		return false;
-	}
-	
-	public void moveUnit(int x, int y)//the moving of the piece might be put in another class instead
-	{
-		if (b.isAvailable(int initX, int initY, int finX, int finY))
-		{
-			setX(x);
-			setY(y);
-		}
-			
 		
+		else
+		{
+			return false;
+		}
 	}
+		
 	
-	public static void main(String[] args)
-	{
-		Bishop b = new Bishop();
-	}
+	
+				
+				
+				
+				
+				
+				
+				
+				
+}
