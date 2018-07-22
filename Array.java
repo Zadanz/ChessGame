@@ -1,5 +1,4 @@
-import java.util.Arrays;
-// Eclipse says that this is redundant as it's not being used
+import java.util.Arrays;	// Eclipse says that this is redundant as it's not being used
 
 public class Array {// class to initialize state of game board and update it upon movement of pieces
 	
