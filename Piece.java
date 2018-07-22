@@ -1,11 +1,8 @@
-
-
-
 public class Piece {//base object that all placeable things inherit from
-	private int posX;
-	private int posY;
-	private String name;
-	private boolean ready;
+	protected int posX;
+	protected int posY;
+	protected String name;
+	protected boolean ready;
 
 	
 	public String toString()
