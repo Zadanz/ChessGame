@@ -90,9 +90,10 @@ public class Array {// class to initialize state of game board and update it upo
 	
 		//Piece logic for the string array version
 	
-	public static boolean canMove (String[][] array, String piece, int iX, int iY, int fX, int fY) {
+	public static boolean canMove (String[][] array, String piece, int fY, int fX, int iY, int iX) {
 		
 		if (piece.regionMatches(5, "Pawn", 0, 4)){
+			System.out.println("move - " + "iX: " + iX + "iY: " + iY + "fX: " + fX + "fY: " + fY);
 			if (array[fX][fY].charAt(0) == piece.charAt(0)) 
 				return false;
 			
@@ -123,7 +124,7 @@ public class Array {// class to initialize state of game board and update it upo
 			if (array[fX][fY].charAt(0) == piece.charAt(0))
 					return false;
 				
-			else if ((fX == iX+1 && fY == iY+2) || (fX == iX+2 && fY == iY+1) || (fX == iX+2 && fY == iY-1) || (fX == iX+1 && fY == iY-2) || (fX == iX-1 && fY == iY-2) || (fX == iX-2 && fY == iY-1) || (fX == iX-2 && fY == iY-1) || (fY == iX-1 && fY == iY-2))
+			else if ((fX == iX+1 && fY == iY+2) || (fX == iX+2 && fY == iY+1) || (fX == iX+2 && fY == iY-1) || (fX == iX+1 && fY == iY-2) || (fX == iX-1 && fY == iY+2) || (fX == iX-2 && fY == iY-1) || (fX == iX-2 && fY == iY+1) || (fY == iX-1 && fY == iY-2))
 					return true;
 				
 			else 
@@ -142,8 +143,9 @@ public class Array {// class to initialize state of game board and update it upo
 			}
 				
 		if (piece.regionMatches(5, "Bishop", 0, 6)) {
-			if (array[fX][fY].charAt(0) == piece.charAt(0))
-					return false;
+			if (array[fX][fY].charAt(0) == piece.charAt(0)) {
+				return false;
+			}
 				
 			else if (Math.abs(fX - iX) == Math.abs(fY - iY))
 				{
