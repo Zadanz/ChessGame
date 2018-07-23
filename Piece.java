@@ -63,7 +63,12 @@ public class Piece {//base object that all placeable things inherit from
 	
 	public boolean canMove(String[][] array, int x, int y)
 	{
-		if ((x > 7) || (x < 0) || (y > 7) || (y < 0))
+		
+		if (!isReady())
+		{
+			return false;
+		}
+		else if ((x > 7) || (x < 0) || (y > 7) || (y < 0))
 		{
 			return false;
 		}
