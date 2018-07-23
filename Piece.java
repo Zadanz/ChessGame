@@ -67,8 +67,9 @@ public class Piece {//base object that all placeable things inherit from
 		setY(y);
 	}
 	
-	public boolean isAvailable(int initX, int initY, int finX, int finY)
+	public boolean canMove(String[][] array, int x, int y)
 	{
+		//this code is not re done yet for canMove
 		if ((finX == initX) && (finY == initY))
 		{
 			return false;
