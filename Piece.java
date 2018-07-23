@@ -77,4 +77,7 @@ public class Piece {//base object that all placeable things inherit from
 			return true;
 		}
 	}
+	
+	public boolean checkPath(String[][] array, int destX, int destY)
+	{}
 }
