@@ -17,20 +17,23 @@ public class Queen extends Piece{
 		return name;
 	}
 	
-	public boolean isAvailable(int initX, int initY, int finX, int finY)
+	public boolean canMove(String[][] array, int x, int y)
 	{
-		if (!super.isAvailable(int initX, int initY, int finX, int finY))
+		if (array[x][y].charAt(0) == this.name.charAt(0))
+			return false;
+
+		elses if ((x == this.posX) || (y == this.posY))
+		{
+			return true;
+		}
+		else if (Math.abs(x - this.posX) == Math.abs(y - this.posY))
+		{
+			return true;
+		}
+		else
 		{
 			return false;
 		}
-
-		if ((finX == initX) || (finY == initY))
-		{
-			return true;
-		}
-		else if (Math.abs(initX - finX) == Math.abs(initY - finY))
-		{
-			return true;
-		}	
+		
 
 }
