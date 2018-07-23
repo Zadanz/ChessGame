@@ -91,106 +91,104 @@ public class Array {// class to initialize state of game board and update it upo
 		//Piece logic for the string array version
 	
 	public static boolean canMove (String[][] array, String piece, int iX, int iY, int fX, int fY) {
-		if (piece.regionMatches(4, "Pawn", 0, 4)) {
+		
+		if (piece.regionMatches(5, "Pawn", 0, 4)){
 			if (array[fX][fY].charAt(0) == piece.charAt(0)) 
 				return false;
 			
-			else if (turn <= 2){ //handles moving 2 spaces for the first turn (turn 1 only whites should be able to move and turn 2 only blacks)
-				if(fX == iX && fY == iY+2){
-					return true;	
-			}
-			
-			else if(fX == iX && fY == iY+1){ 	//handles moving forward
-				if (array[fX][fY] != "emptySpace")
-					return false;
-				else
+			else if (Array.turn <= 2){ //handles moving 2 spaces for the first turn (turn 1 only whites should be able to move and turn 2 only blacks)
+				if(fX == iX && fY == iY+2)
 					return true;
-			}
 			
-			else if (fX == iX-1 || fX == iX+1 && fY == iY+1){
-				if (array[fX][fY] != "emptySpace"){
-					return true;
-				}
-				else
-					return false;
-			}
-			
-			else
-				return false;
-		}
-			if (piece.regionMatches(4, "Knight", 0, 6)) {
-				if (array[fX][fY].charAt(0) == piece.charAt(0))
-					return false;
-				
-				if ((fX == iX+1 && fY == iY+2) || (fX == iX+2 && fY == iY+1) || (fX == iX+2 && fY == iY-1) || (fX == iX+1 && fY == iY-2) || (fX == iX-1 && fY == iY-2) || (fX == iX-2 && fY == iY-1) || (fX == iX-2 && fY == iY-1) || (fY == iX-1 && fY == iY-2))
-					return true;
-				
-				else 
-					return false;
-			}
-			
-			if (piece.regionMatches(4, "King", 0, 4)) {
-				if (array[fX][fY].charAt(0) == piece.charAt(0))
-					return false;
-				
-				else if ((fX == iX+1 && fY == iY)||(fX == iX+1 && fY == iY+1)||(fX == iX && fY == iY+1)||(fX == iX-1 && fY == iY)||(fX == iX-1 && fY == iY-1)||(fX == iX && fY == iY-1)||(fX == iX+1 && fY == iY-1)||(fX == iX-1 && fY == iY+1))
-					//if (inCheck(array, x, y)) //used to check whether the move will result in putting the king into check, thereby making it illegal. (This function doesn't exist yet.)
+				else if(fX == iX && fY == iY+1){ 	//handles moving forward
+					if (array[fX][fY] != "emptySpace")
 						return false;
 					else
-						return true;	
+						return true;
+				}
+			
+				else if (fX == iX-1 || fX == iX+1 && fY == iY+1){
+					if (array[fX][fY] != "emptySpace"){
+						return true;
+					}
+					else
+						return false;
+					}
+			
+				else
+					return false;
+			}
+		}
+		else if (piece.regionMatches(5, "Knight", 0, 6)) {
+			if (array[fX][fY].charAt(0) == piece.charAt(0))
+					return false;
+				
+			else if ((fX == iX+1 && fY == iY+2) || (fX == iX+2 && fY == iY+1) || (fX == iX+2 && fY == iY-1) || (fX == iX+1 && fY == iY-2) || (fX == iX-1 && fY == iY-2) || (fX == iX-2 && fY == iY-1) || (fX == iX-2 && fY == iY-1) || (fY == iX-1 && fY == iY-2))
+					return true;
+				
+			else 
+					return false;
 			}
 			
+		if (piece.regionMatches(5, "King", 0, 4)) {
+			if (array[fX][fY].charAt(0) == piece.charAt(0))
+					return false;
+				
+			else if ((fX == iX+1 && fY == iY)||(fX == iX+1 && fY == iY+1)||(fX == iX && fY == iY+1)||(fX == iX-1 && fY == iY)||(fX == iX-1 && fY == iY-1)||(fX == iX && fY == iY-1)||(fX == iX+1 && fY == iY-1)||(fX == iX-1 && fY == iY+1))
+					//if (inCheck(array, x, y)) //used to check whether the move will result in putting the king into check, thereby making it illegal. (This function doesn't exist yet.)
+					return true;
 			else
+					return false;
+			}
+				
+		if (piece.regionMatches(5, "Bishop", 0, 6)) {
+			if (array[fX][fY].charAt(0) == piece.charAt(0))
+					return false;
+				
+			else if (Math.abs(fX - iX) == Math.abs(fY - iY))
+				{
+					return true;
+				}
+				
+			else
+				{
+					return false;
+				}
+		}
+			
+		if (piece.regionMatches(5, "Rook", 0, 4)) {
+			if (array[fX][fY].charAt(0) == piece.charAt(0))
+					return false;
+				
+			else if ((fX == iX) || (fY == iY))
+				{
+					return true;
+				}
+				
+			else
+				{
+					return false;
+				}
+		}
+			
+		if (piece.regionMatches(5, "Queen", 0, 5)) {
+			if (array[fX][fY].charAt(0) == piece.charAt(0))
+					return false;
+				
+			else if (Math.abs(fX - iX) == Math.abs(fY - iY) || ((fX == iX) || (fY == iY)))
+				{
+					return true;
+				}
+				
+			else
+				{
+					return false;
+				
+				}
+		}
+		
+		else
 				return false;
-			}
-			
-			if (piece.regionMatches(4, "Bishop", 0, 6)) {
-				if (array[fX][fY].charAt(0) == piece.charAt(0))
-					return false;
-				
-				//insert seperate method which will check the possible movement spaces for a piece there which it cannot jump over
-				
-				if (Math.abs(fX - iX) == Math.abs(fY - iY))
-				{
-					return true;
-				}
-				
-				else
-				{
-					return false;
-		}
-			}
-			
-			if (piece.regionMatches(4, "Rook", 0, 4)) {
-				if (array[fX][fY].charAt(0) == piece.charAt(0))
-					return false;
-				
-				if ((fX == iX) || (fY == iY))
-				{
-					return true;
-				}
-				
-				else
-				{
-					return false;
-		}
-			}
-			
-			if (piece.regionMatches(4, "Queen", 0, 5)) {
-				if (array[fX][fY].charAt(0) == piece.charAt(0))
-					return false;
-				
-				if (Math.abs(fX - iX) == Math.abs(fY - iY) || ((fX == iX) || (fY == iY)))
-				{
-					return true;
-				}
-				
-				else
-				{
-					return false;
-				
-				}
-			}
 	}
 	
 	public boolean isWhiteInCheck (String[][] array, String piece, int x, int y)
