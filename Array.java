@@ -148,6 +148,8 @@ public class Array {// class to initialize state of game board and update it upo
 				if (array[fX][fY].charAt(0) == piece.charAt(0))
 					return false;
 				
+				//insert seperate method which will check the possible movement spaces for a piece there which it cannot jump over
+				
 				if (Math.abs(fX - iX) == Math.abs(fY - iY))
 				{
 					return true;
