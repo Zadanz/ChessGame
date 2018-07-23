@@ -9,6 +9,7 @@ public class Array {// class to initialize state of game board and update it upo
 		String pieceName = "null";
 		int locationRow;
 		int locationColumn;
+		int turn = 1;
 		
 		String [][] boardArray=initArray();// initialize board
 		drawBoard(boardArray); // print default board
@@ -42,6 +43,7 @@ public class Array {// class to initialize state of game board and update it upo
 			
 			keyboardInput.exitPrompt(); // prompts the user if want to exit
 			
+			turn++;
 		}
 		
 				
@@ -94,7 +96,6 @@ public class Array {// class to initialize state of game board and update it upo
 				return false;
 			
 			else if (turn <= 2){ //handles moving 2 spaces for the first turn (turn 1 only whites should be able to move and turn 2 only blacks)
-				//turn should be changed to whatever variable will be handling this
 				if(fX == iX && fY == iY+2){
 					return true;	
 			}
