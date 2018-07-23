@@ -18,18 +18,6 @@ public class Rook extends Piece{
 		return name;
 	}
 	
-	public boolean isAvailable(int initX, int initY, int finX, int finY)
-	{
-		if (!super.isAvailable(int initX, int initY, int finX, int finY))
-		{
-			return false;
-		}
-		if ((finX == initX) || (finY == initY))
-		{
-			return true;
-		}
-		return false;
-	}
 	
 	public boolean canMove(String[][] array, int x, int y)
 	{
