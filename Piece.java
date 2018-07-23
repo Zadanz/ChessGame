@@ -61,20 +61,9 @@ public class Piece {//base object that all placeable things inherit from
 		this.ready = r;
 	}
 	
-	public void moveUnit(int x, int y)
-	{
-		setX(x);
-		setY(y);
-	}
-	
 	public boolean canMove(String[][] array, int x, int y)
 	{
-		//this code is not re done yet for canMove
-		if ((finX == initX) && (finY == initY))
-		{
-			return false;
-		}
-		else if (initX < 0 || initX > 7 || finX < 0 || finX > 7 || initY < 0 || initY > 7 || finY < 0 || finY > 7)
+		if ((x > 7) || (x < 0) || (y > 7) || (y < 0))
 		{
 			return false;
 		}
