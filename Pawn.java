@@ -1,6 +1,7 @@
 
 public class Pawn extends Piece{
 	private String name = "P";
+	private boolean firstTurn = true;
 	
 	public Pawn(boolean white) {
 		if (white == true)
@@ -17,10 +18,9 @@ public class Pawn extends Piece{
 		if (array[x][y].charAt(0) == this.name.charAt(0)) 
 			return false;
 		
-		else if (turn <= 2){ //handles moving 2 spaces for the first turn (turn 1 only whites should be able to move and turn 2 only blacks)
-			//turn should be changed to whatever variable will be handling this
-			if(x == this.posX && y == this.posY+2){
-				return true;	
+		else if (firstTurn && x == this.posX && y == this.posY+2){ //handles moving 2 spaces for the first turn (turn 1 only whites should be able to move and turn 2 only blacks)
+			firstTurn = false;
+			return true;	
 		}
 		
 		else if(x == this.posX && y == this.posY+1){ 	//handles moving forward
@@ -42,6 +42,4 @@ public class Pawn extends Piece{
 		else
 			return false;
 		}
-	}
 }
-
