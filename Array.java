@@ -196,7 +196,7 @@ public class Array {// class to initialize state of game board and update it upo
 	public boolean isWhiteInCheck (String[][] array, String piece, int x, int y)
 	{
 	}
-	public boolen isBlackInCheck (String[][] array, String piece, int x, int y)
+	public boolean isBlackInCheck (String[][] array, String piece, int x, int y)
 	{
 	}
 	
