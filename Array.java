@@ -190,6 +190,14 @@ public class Array {// class to initialize state of game board and update it upo
 			}
 	}
 	
+	public boolean isWhiteInCheck (String[][] array, String piece, int x, int y)
+	{
+	}
+	public boolen isBlackInCheck (String[][] array, String piece, int x, int y)
+	{
+	}
+	
+	
 	
 /*	private static boolean emptySpaceCheck(String[][] array, int r, int c) { //I don't think this is needed currently
 		if(array[r][c] == "emptySpace") {
