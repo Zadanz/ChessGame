@@ -9,8 +9,7 @@ public class Bishop extends Piece{
 	}
 	
 	
-	public Bishop(int x, int y, boolean r)
-	{
+	public Bishop(int x, int y, boolean r) {
 		super(x, y, "Bishop", r);
 	}
 	
@@ -19,22 +18,14 @@ public class Bishop extends Piece{
 	}
 
 	
-	public boolean canMove(String[][] array, int x, int y)
-	{
+	public boolean canMove(String[][] array, int x, int y) {
 		if (array[x][y].charAt(0) == this.name.charAt(0))
-		{
 			return false;
-		}
-		
+	
 		if (Math.abs(x - this.posX) == Math.abs(y - this.posY))
-		{
 			return true;
-		}
-		
 		else
-		{
 			return false;
-		}
 	}
 		
 	
